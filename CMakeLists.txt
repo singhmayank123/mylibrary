@@ -22,6 +22,6 @@ install(TARGETS MyLib
 install(EXPORT MyLibTargets
         FILE MyLibTargets.cmake
         NAMESPACE MyLib::
-        DESTINATION lib/cmake/MyLib
+        DESTINATION cmake
          )
 
