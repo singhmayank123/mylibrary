@@ -11,17 +11,15 @@ write_basic_package_version_file(
 add_library(mylibrary MyLibrary.cpp)
 add_library(mylibrary::mylibrary ALIAS mylibrary)
 
-install(TARGETS mylibrary
-   EXPORT mylibraryTargets
-   LIBRARY DESTINATION lib
-   ARCHIVE DESTINATION lib
-   RUNTIME DESTINATION bin
-   INCLUDES DESTINATION include
-)
-
-install(EXPORT mylibraryTargets
-        FILE mylibraryTargets.cmake
-        NAMESPACE mylibrary::
-        DESTINATION lib/cmake/mylibrary
+install(TARGETS MyLib
+        EXPORT MyLibTargets
+        LIBRARY DESTINATION lib
+        ARCHIVE DESTINATION lib
+        RUNTIME DESTINATION bin
+        INCLUDES DESTINATION include
+        )
+install(EXPORT MyLibTargets
+        FILE MyLibTargets.cmake
+        NAMESPACE MyLib::
+        DESTINATION lib/cmake/MyLib
          )
-
