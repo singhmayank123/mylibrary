@@ -1,6 +1,13 @@
 cmake_minimum_required(VERSION 3.15)
 set(mylibrary_VERSION 1.0.0)
 project(mylibrary)
+include(GNUInstallDirs)
+include(CMakePackageConfigHelpers)
+write_basic_package_version_file(
+    MyLibConfigVersion.cmake
+    VERSION ${PACKAGE_VERSION}
+    COMPATIBILITY AnyNewerVersion
+    )
 add_library(mylibrary MyLibrary.cpp)
 add_library(mylibrary::mylibrary ALIAS mylibrary)
 
@@ -12,4 +19,9 @@ install(TARGETS MyLib
    INCLUDES DESTINATION include
 )
 
+install(EXPORT MyLibTargets
+        FILE MyLibTargets.cmake
+        NAMESPACE MyLib::
+        DESTINATION lib/cmake/MyLib
+         )
 
