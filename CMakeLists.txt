@@ -19,8 +19,8 @@ install(TARGETS mylibrary
    INCLUDES DESTINATION include
 )
 
-install(EXPORT MyLibTargets
-        FILE MyLibTargets.cmake
+install(EXPORT mylibraryTargets
+        FILE mylibraryTargets.cmake
         NAMESPACE mylibrary::
         DESTINATION lib/cmake/mylibrary
          )
