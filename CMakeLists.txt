@@ -27,3 +27,10 @@ install(
     NAMESPACE ${PORT_NAME}::
     DESTINATION "${CONFIG_DESTINATION}"
 )
+file(REMOVE_RECURSE
+    ${CURRENT_PACKAGES_DIR}/debug/include
+    ${CURRENT_PACKAGES_DIR}/debug/share
+)
+
+# Handle copyright
+file(INSTALL ${SOURCE_PATH}/COPYING DESTINATION ${CURRENT_PACKAGES_DIR}/share/mylibrary RENAME copyright)
