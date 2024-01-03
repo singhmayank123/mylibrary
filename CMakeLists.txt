@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.15)
-set(mylibrary_VERSION 1.0.0)
+set(PACKAGE_VERSION 1.0.0)
 project(mylibrary)
 include(GNUInstallDirs)
 include(CMakePackageConfigHelpers)
