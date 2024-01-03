@@ -4,5 +4,12 @@ project(mylibrary)
 add_library(mylibrary MyLibrary.cpp)
 add_library(mylibrary::mylibrary ALIAS mylibrary)
 
- 
+install(TARGETS MyLib
+   EXPORT MyLibTargets
+   LIBRARY DESTINATION lib
+   ARCHIVE DESTINATION lib
+   RUNTIME DESTINATION bin
+   INCLUDES DESTINATION include
+)
+
 
