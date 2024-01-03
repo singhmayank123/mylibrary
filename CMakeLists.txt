@@ -4,6 +4,7 @@ project(mylibrary)
 include(GNUInstallDirs)
 include(CMakePackageConfigHelpers)
 set(PORT_NAME mylibrary)
+set(CONFIG_DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/${PORT_NAME}")
 write_basic_package_version_file(
     MyLibConfigVersion.cmake
     VERSION ${PACKAGE_VERSION}
