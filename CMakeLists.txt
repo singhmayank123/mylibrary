@@ -12,7 +12,13 @@ write_basic_package_version_file(
     )
 add_library(mylibrary MyLibrary.cpp)
 add_library(mylibrary::mylibrary ALIAS mylibrary)
-
+configure_package_config_file(
+    "${PROJECT_SOURCE_DIR}/cmake/${PORT_NAME}-config.cmake.in"
+    "${PROJECT_BINARY_DIR}/${PORT_NAME}-config.cmake"
+    INSTALL_DESTINATION "${CONFIG_DESTINATION}"
+    NO_SET_AND_CHECK_MACRO
+    NO_CHECK_REQUIRED_COMPONENTS_MACRO
+)
 install(
     TARGETS ${PORT_NAME}
     EXPORT ${PORT_NAME}-targets
@@ -20,17 +26,3 @@ install(
     LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}"
     RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"
 )
-
-#install the targets files
-install(
-    EXPORT ${PORT_NAME}-targets
-    NAMESPACE ${PORT_NAME}::
-    DESTINATION "${CONFIG_DESTINATION}"
-)
-
-configure_file(MyLibConfig.cmake.in MyLibConfig.cmake @ONLY)
-install(FILES "${CMAKE_CURRENT_BINARY_DIR}/MyLibConfig.cmake"
-      "${CMAKE_CURRENT_BINARY_DIR}/MyLibConfigVersion.cmake"
-DESTINATION lib/cmake/MyLib
-)
-
