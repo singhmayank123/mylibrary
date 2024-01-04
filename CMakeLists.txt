@@ -13,8 +13,8 @@ write_basic_package_version_file(
 add_library(mylibrary MyLibrary.cpp)
 add_library(mylibrary::mylibrary ALIAS mylibrary)
 configure_package_config_file(
-    "${CMAKE_INSTALL_LIBDIR}/cmake/${PORT_NAME}-config.cmake.in"
-    "${CMAKE_INSTALL_LIBDIR}/${PORT_NAME}-config.cmake"
+    "${PROJECT_SOURCE_DIR}/cmake/${PORT_NAME}-config.cmake.in"
+    "${PROJECT_SOURCE_DIR}/${PORT_NAME}-config.cmake"
     INSTALL_DESTINATION "${CONFIG_DESTINATION}"
 )
 install(
