@@ -28,3 +28,9 @@ install(
     DESTINATION "${CONFIG_DESTINATION}"
 )
 
+configure_file(MyLibConfig.cmake.in MyLibConfig.cmake @ONLY)
+install(FILES "${CMAKE_CURRENT_BINARY_DIR}/MyLibConfig.cmake"
+      "${CMAKE_CURRENT_BINARY_DIR}/MyLibConfigVersion.cmake"
+DESTINATION lib/cmake/MyLib
+)
+
